@@ -1,0 +1,5 @@
+DROP TABLE produto
+
+CREATE TABLE produto(codigo_produto SERIAL PRIMARY KEY, nome VARCHAR(40) NOT NULL UNIQUE,
+					descricao TEXT, preco NUMERIC CHECK(preco > 0) NOT NULL,
+					quantidade_estoque SMALLINT DEFAULT 0 );

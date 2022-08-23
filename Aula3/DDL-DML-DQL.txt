@@ -1,0 +1,18 @@
+DDL
+Chaves candidatas
+codigo
+
+CREATE TABLE cliente(codigo_cliente SERIAL PRIMARY KEY, nome VARCHAR(40), telefone CHAR(11), email VARCHAR(50)):
+ALTER TABLE cliente ADD COLUMN cpf CHAR(11);
+ALTER TABLE cliente DROP COLUMN email;
+ALTER TABLE cliente ALTER COLUMN nome TYPE VARCHAR(60);
+
+DML
+
+INSERT INTO cliente (nome,telefone,email) VALUES ('MARIA','2422359090','MARIA@GMAIL.COM');
+UPDATE cliente SET cpf='12345678901' WHERE codigo_cliente=1;
+
+DQL
+
+SELECT * FROM cliente;
+
