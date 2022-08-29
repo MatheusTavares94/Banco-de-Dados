@@ -1,0 +1,18 @@
+select descricao, qtd_produto from produto WHERE descricao LIKE '%o%' ;
+
+select * FROM produto;
+
+_____________________________________________________________________________
+Aula7
+CREATE TABLE func(cod_func serial PRIMARY KEY, cpf CHAR(11), nome varchar(40), data_nascimento date, cod_gerente int, FOREIGN KEY(cod_gerente) REFERENCES func (cod_func));
+
+insert into func (cpf,nome,data_nascimento,cod_gerente) VALUES ('12345678901','MARIA','1990-09-20',NULL);
+insert into func (cpf,nome,data_nascimento,cod_gerente) VALUES ('12345678902','ANA','1991-08-20',1);
+insert into func (cpf,nome,data_nascimento,cod_gerente) VALUES ('12345678903','MANOEL','1992-07-20',1);
+insert into func (cpf,nome,data_nascimento,cod_gerente) VALUES ('12345678904','CARLA','1991-07-21',1);
+insert into func (cpf,nome,data_nascimento,cod_gerente) VALUES ('12345678902','JOAO','1990-07-19',2);
+
+select a.nome as funcionario, b.nome as gerente from func as a right join func as b
+on a.cod_func = b.cod_gerente;
+
+select f.cod_func, f.nome, fg.nome as gerente from func f left join func fg on fg.cod_func=f.cod_gerente;
